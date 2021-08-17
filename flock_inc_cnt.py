@@ -27,8 +27,10 @@ def increment_counter():
 def flock_increment_counter():
     with open(LOCK_FILE, "w+") as lockf:
         fcntl.flock(lockf.fileno(), fcntl.LOCK_EX)
-        cnt = increment_counter()
-        fcntl.flock(lockf.fileno(), fcntl.LOCK_UN)
+        try:
+            cnt = increment_counter()
+        finally:
+            fcntl.flock(lockf.fileno(), fcntl.LOCK_UN)
     return cnt
 
 
