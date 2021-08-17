@@ -3,6 +3,9 @@
 """
 カウンターを10000増やす(排他制御あり)
 並行で複数動かしてもOK
+
+実行例:
+./init_cnt.py ; ./flock_inc_cnt.py & ./flock_inc_cnt.py & ./flock_inc_cnt.py
 """
 import fcntl
 
