@@ -20,3 +20,12 @@ flock()を使っているのでUNIXのみ動く。詳しくは`man 2 flock`参�
 # 30000になる
 ./init_cnt.py ; ./flock_inc_cnt.py & ./flock_inc_cnt.py & ./flock_inc_cnt.py
 ```
+
+# そのほかメモ
+
+COUNTER_FILEと別にLOCK_FILEが必要なのは、
+COUNTER_FILEをオープンした時点でバッファされてしまうからだと思う。
+
+あと、例外の補足をしてないのがよろしくないので
+(ロックファイルが開放されない)
+あとで追加する。
